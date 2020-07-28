@@ -61,6 +61,7 @@ class Ultrasonic:
     def run(self):
         self.PWM=Motor()
         self.pwm_S=Servo()
+        self.pwm_S.setServoPwm('1', 70)
         deg = 30
         for i in range(deg, deg * 5 + 1,deg * 2):
                 self.pwm_S.setServoPwm('0',i)
