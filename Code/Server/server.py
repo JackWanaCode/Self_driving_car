@@ -132,7 +132,7 @@ class Server:
         try:
             try:
                 self.connection1,self.client_address1 = self.server_socket1.accept()
-                print ("Client connection successful !")
+                print ("Client connection successful ! ---- SURE?")
             except:
                 print ("Client connect failed")
             restCmd=""
@@ -144,7 +144,7 @@ class Server:
                     if self.tcp_Flag:
                         self.Reset()
                     break
-                print(AllData)
+                print('AllData is', AllData)
                 if len(AllData) < 5:
                     restCmd=AllData
                     if restCmd=='' and self.tcp_Flag:
@@ -184,6 +184,7 @@ class Server:
                             self.infraredRun.start()
                             
                     elif (cmd.CMD_MOTOR in data) and self.Mode=='one':
+                        print('Data is', data)
                         try:
                             data1=int(data[1])
                             data2=int(data[2])
